@@ -1,0 +1,31 @@
+[
+This is a comment block because [ evaluates *ptr to be zero ] close brackets!
+Every character is a command
+the operator : adds *ptr to the program counter
+blank space characters are counted to the pc but they have no effect
+But white space isn't executed so you can have fun with that ^-^
+]
+
+d a c b
+++++++++++++++++++++++++++++++++:
+This says 32 is saved to b and  ;
+                                ++++++++++++:
+Then b+12 is saved to c and c to a          ;
++++++++++++++++++++++;
+++++ ++++ ++++ ++++
+++++ ++++ ++++ ++++
+;
+a;+++++++
+>d;++++
+>+=+++++++e=;
+>e;
+>e;+++f=;
+>c;
+>b;
+>d;----------
+>f;
+>f+++;
+>e;
+>d+++;
+>b;+
+<<<<<<<<<<<<.>.>.>.>.>.>.>.>.>.>.>.>.>++++++++++.
