@@ -13,6 +13,7 @@ That language uses only 8 operators
  - Operator '`]`' Executes as `}`
  - Operator '`.`' Executes as `putc(stdout, *ptr);`
  - Operator '`,`' Executes as `*ptr = getc(stdin);`
+
 Shict has added 6 additional register operators
 `a` `b` `c` `d` `e` `f`
 as well as added the concept of an `ac` and a `pc`.
@@ -20,5 +21,6 @@ Shict has added 2 additional operators along with these operators.
  - Operator '`:`' Executes as `pc+=*ptr`
  - Operator '`;`' Executes as `ptr=stack.pop();*ptr=ac;`
  - Operator '`a` - `f`' `stack.push(ptr);ac=@;ptr=&@;` where @ is the register
+
 The register operators allow the code to affect their context before evaluating
 
