@@ -125,11 +125,43 @@ int main(int argc,char*argv[])
 						<<std::endl;
 						return 1;
 				}break;
+			case'%':
+				std::cout<<proc<<"HEAP:"<<std::endl
+				<<proc;
+				ptr=heap;
+				while(ptr<=highptr)
+					std::cout<<*(ptr++)<<" ";
+				std::cout<<std::endl<<proc<<"REG:"
+					<<std::endl<<proc<<"pc=  "<<pc
+					<<std::endl<<proc<<"a="
+					<<std::setw(5)<<a<<"  '"
+					<<(char)a<<"'"
+					<<std::endl<<proc<<"b="
+					<<std::setw(5)<<b<<"  '"
+					<<(char)b<<"'"
+					<<std::endl<<proc<<"c="
+					<<std::setw(5)<<c<<"  '"
+					<<(char)c<<"'"
+					<<std::endl<<proc<<"d="
+					<<std::setw(5)<<d<<"  '"
+					<<(char)d<<"'"
+					<<std::endl<<proc<<"e="
+					<<std::setw(5)<<e<<"  '"
+					<<(char)e<<"'"
+					<<std::endl<<proc<<"f="
+					<<std::setw(5)<<f<<"  '"
+					<<(char)f<<"'"
+					<<std::endl<<proc<<"ac="
+					<<std::setw(4)<<ac<<"  '"
+					<<(char)ac<<"'"
+					<<std::endl;
+				break;
+
 			case'.':if(stack.size())putc(ac,stdout);else putc(*ptr,stdout);break;
 			case',':*ptr=getc(stdin);break;
 			case':':if(stack.size())pc+=ac;else pc+=*ptr;break;
 			case'=':if(stack.size())ac=*ptr;else*ptr=heap[*ptr];break;
-			case'[':if(!*ptr)
+			case'[':if(*ptr == 0)
 				{
 					while(++pc<text.size())
 					if((x=text[pc])=='[')pt++;
@@ -140,13 +172,16 @@ int main(int argc,char*argv[])
 					}
 				}
 				break;
-			case']':while(pc-->0)
+			case']':if(*ptr)
+				{
+					while(--pc > 0)
 					if((x=text[pc])==']')pt++;
 					else if(x=='[')
 					{
 						if(pt)--pt;
 						else break;
 					}
+				}
 				break;
 			case'a':if(stack.size())ac+=a;else ac=a;
 				stack.push_back('a');break;
@@ -171,8 +206,8 @@ int main(int argc,char*argv[])
 					case'e':e=ac;break;
 					case'f':f=ac;break;
 					}
+					stack.pop_back();
 				}
-				stack.pop_back();
 				if(!stack.size())*ptr=ac;
 				break;
 			case'0':ac=0;break;
