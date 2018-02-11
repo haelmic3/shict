@@ -20,7 +20,9 @@ Shict has added 4 additional operators along with these operators.
  - Operator '`:`' Executes as `pc+=*ptr`
  - Operator '`;`' Executes as `ptr=stack.pop();*ptr=ac;`
  - Operator '`a` - `f`' Executes as `stack.push(ptr);ptr=&@;` where @ is the register
- - Operator '`=`' Executes as `*ptr=*(ptr+*ptr);`
+ - Operator '`=`' Executes as `*ptr=*(origin+*ptr);`
+ - Operator '`~`' Executes as `*ptr~=*ptr;`
  - Operator '`0`' Executes as `*ptr=0;`
+ - Operator '`1`' Executes as `*ptr=0;`
 The register operators allow the code to affect their context before evaluating
 

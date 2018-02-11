@@ -160,7 +160,9 @@ int main(int argc,char*argv[])
 			case'.':if(stack.size())putc(ac,stdout);else putc(*ptr,stdout);break;
 			case',':*ptr=getc(stdin);break;
 			case':':if(stack.size())pc+=ac;else pc+=*ptr;break;
-			case'=':if(stack.size())ac=*ptr;else*ptr=heap[*ptr];break;
+			case'=':if(stack.size())ac=*ptr;else*ptr=heap[*ptr];
+					break;
+			case'~':if(stack.size())ac~=ac;else*ptr~=*ptr;break;
 			case'[':if(*ptr == 0)
 				{
 					while(++pc<text.size())
